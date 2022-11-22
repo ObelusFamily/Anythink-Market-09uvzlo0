@@ -27,7 +27,7 @@ const EditProfileSettings = (props) => {
 const FollowUserButton = (props) => {
   if (props.isUser) {
     return null;
-  }
+  }  
 
   let classes = "btn btn-sm action-btn";
   if (props.user.following) {
@@ -38,6 +38,9 @@ const FollowUserButton = (props) => {
 
   const handleClick = (ev) => {
     ev.preventDefault();
+    if(props.isUser === null){
+      return
+    }
     if (props.user.following) {
       props.unfollow(props.user.username);
     } else {
